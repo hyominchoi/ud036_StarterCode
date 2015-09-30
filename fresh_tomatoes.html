@@ -1,10 +1,4 @@
-import webbrowser
-import os
-import re
 
-
-# Styles and scripting for the page
-main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,11 +112,7 @@ main_page_head = '''
         
     </script>
 </head>
-'''
 
-
-# The main page layout and title bar
-main_page_content = '''
   <body>
     <!-- Trailer Video Modal -->
     <div class="modal" id="trailer">
@@ -148,22 +138,14 @@ main_page_content = '''
       </div>
     </div>
     <div class="container">
-      {movie_tiles}
-    </div>
-  </body>
-</html>
-'''
-
-
-# A single movie entry html template
-movie_tile_content = '''
+      
 <div class = "col-md-6 col-lg-4 text-center movie-tile-extended" >
-    <div class = "movie-tile-image" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-        <img src="{poster_image_url}" width="220" height="342" class ="thumbnail">
+    <div class = "movie-tile-image" data-trailer-youtube-id="9TjEklyF7-E" data-toggle="modal" data-target="#trailer">
+        <img src="http://www.gstatic.com/tv/thumb/movieposters/24917/p24917_p_v7_aa.jpg" width="220" height="342" class ="thumbnail">
    </div>
    
-   <div class = "movie-tile-title text-center" data-movie-storyline="{movie_storyline}" style = "color:black">
-        <a href = " {movie_storyline}" target="_blank" > <h2> {movie_title} </h2> </a>
+   <div class = "movie-tile-title text-center" data-movie-storyline="http://www.imdb.com/title/tt0195685/" style = "color:black">
+        <a href = " http://www.imdb.com/title/tt0195685/" target="_blank" > <h2> Erin Brockovich </h2> </a>
         <br><br><br>
    </div>
   
@@ -172,44 +154,55 @@ movie_tile_content = '''
 
 
 
-'''
+
+<div class = "col-md-6 col-lg-4 text-center movie-tile-extended" >
+    <div class = "movie-tile-image" data-trailer-youtube-id="qZzfxL90100" data-toggle="modal" data-target="#trailer">
+        <img src="http://www.gstatic.com/tv/thumb/movieposters/35240/p35240_p_v7_aa.jpg" width="220" height="342" class ="thumbnail">
+   </div>
+   
+   <div class = "movie-tile-title text-center" data-movie-storyline="http://www.imdb.com/title/tt0395169/?ref_=fn_al_tt_1" style = "color:black">
+        <a href = " http://www.imdb.com/title/tt0395169/?ref_=fn_al_tt_1" target="_blank" > <h2> Hotel Rwanda </h2> </a>
+        <br><br><br>
+   </div>
+  
+</div>
 
 
-def create_movie_tiles_content(movies):
-    # The HTML content for this section of the page
-    content = ''
-    for movie in movies:
-        # Extract the youtube ID from the url
-        youtube_id_match = re.search(
-            r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-        youtube_id_match = youtube_id_match or re.search(
-            r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-        trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
-                              else None)
-
-        # Append the tile for the movie with its content filled in
-        content += movie_tile_content.format(
-            movie_title=movie.title,
-            movie_storyline = movie.storyline,
-            poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
-                                             
-        )
-    return content
 
 
-def open_movies_page(movies):
-    # Create or overwrite the output file
-    output_file = open('fresh_tomatoes.html', 'w')
 
-    # Replace the movie tiles placeholder generated content
-    rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies))
+<div class = "col-md-6 col-lg-4 text-center movie-tile-extended" >
+    <div class = "movie-tile-image" data-trailer-youtube-id="UsB9QoMgr0I" data-toggle="modal" data-target="#trailer">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Camille_Claudel_1915_poster.jpg" width="220" height="342" class ="thumbnail">
+   </div>
+   
+   <div class = "movie-tile-title text-center" data-movie-storyline="http://www.imdb.com/title/tt2018086/?ref_=fn_al_tt_2" style = "color:black">
+        <a href = " http://www.imdb.com/title/tt2018086/?ref_=fn_al_tt_2" target="_blank" > <h2> Camille Claudel </h2> </a>
+        <br><br><br>
+   </div>
+  
+</div>
 
-    # Output the file
-    output_file.write(main_page_head + rendered_content)
-    output_file.close()
 
-    # open the output file in the browser (in a new tab, if possible)
-    url = os.path.abspath(output_file.name)
-    webbrowser.open('file://' + url, new=2)
+
+
+
+<div class = "col-md-6 col-lg-4 text-center movie-tile-extended" >
+    <div class = "movie-tile-image" data-trailer-youtube-id="CAxqXsao2Ew " data-toggle="modal" data-target="#trailer">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/22/8-femmes-poster.jpg " width="220" height="342" class ="thumbnail">
+   </div>
+   
+   <div class = "movie-tile-title text-center" data-movie-storyline="http://www.imdb.com/title/tt0283832/?ref_=fn_al_tt_1" style = "color:black">
+        <a href = " http://www.imdb.com/title/tt0283832/?ref_=fn_al_tt_1" target="_blank" > <h2> 8 Femmes </h2> </a>
+        <br><br><br>
+   </div>
+  
+</div>
+
+
+
+
+
+    </div>
+  </body>
+</html>
