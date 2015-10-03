@@ -33,11 +33,8 @@ main_page_head = '''
         }
         .navbar {
             clear:left;
-          
-        
             box-shadow: 2px 5px 5px dimgrey;
             padding:10px;
-        
         }
         #trailer-video {
             width: 100%;
@@ -48,15 +45,12 @@ main_page_head = '''
             padding-top: 20px;
             padding-bottom: 10px;
             max-height:450px;
-            
         }
         .movie-tile-image {
             display: block;
             margin-top : 20px;
             padding-left : 60px;
-            
         }
-        
         .movie-tile-title{
             padding: 10px;
         }
@@ -81,7 +75,6 @@ main_page_head = '''
             cursor: pointer;
             width: 240px;
             height: 365px;
-        
             z-index:50;
         }
         
@@ -110,11 +103,6 @@ main_page_head = '''
             $(this).next("div").show("fast", showNext);
           });
         });
-        
-    //    $(document).on ('click', '.movie-tile-title',function (event) {
-    //        var description = $(this).attr('data-movie-storyline');
-    //        $(this).innerHTML = "hello" ;
-    //    });
         
     </script>
 </head>
@@ -168,10 +156,6 @@ movie_tile_content = '''
    </div>
   
 </div>
-
-
-
-
 '''
 
 
